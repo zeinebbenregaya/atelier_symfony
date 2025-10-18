@@ -1,0 +1,38 @@
+{# templates/author/index.html.twig #}
+
+
+<h1>Liste des auteurs</h1>
+
+<p><a href="{{ path('author_insert') }}">Ajouter un auteur</a></p>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Nb Books</th>
+        <th>Actions</th>
+
+    </tr>
+    {% for author in authors %}
+    <tr>
+        <td>{{ author.id }}</td>
+        <td>{{ author.username }}</td>
+        <td>{{ author.email }}</td>
+        <td>{{ author.nbBooks }}</td>
+        <td>
+            
+
+            {# Bouton Delete #}
+            <a href="{{ path('author_delete', {'id': author.id}) }}">
+                <button type="button">Delete</button>
+            </a>
+            {# Bouton Edit #}
+            <a href="{{ path('author_update', {'id': author.id}) }}">
+                <button type="button">update</button>
+            </a>
+
+        </td>
+    </tr>
+    {% endfor %}
+</table>

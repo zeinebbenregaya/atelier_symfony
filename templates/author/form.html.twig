@@ -1,0 +1,16 @@
+{# templates/author/form.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ authorForm.vars.value.id ? 'Modifier un auteur' : 'Ajouter un auteur' }}</h1>
+
+    {{ form_start(authorForm) }}
+        {{ form_errors(authorForm) }}
+
+        {{ form_row(authorForm.username) }}
+        {{ form_row(authorForm.email) }}
+        {{ form_row(authorForm.nbBooks) }}
+        {{ form_row(authorForm.save) }}
+
+    {{ form_end(authorForm) }}
+{% endblock %}
